@@ -15,6 +15,7 @@ const (
 	maxPoolSize     = 300
 )
 
+// NewMongoDBConn - Initialize new MongoDB client
 func NewMongoDBConn(ctx context.Context, cfg *config.Config) (*mongo.Client, error) {
 	client, err := mongo.Connect(ctx, options.Client().ApplyURI(cfg.MongoDB.URI).
 		SetAuth(options.Credential{
